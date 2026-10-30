@@ -1,0 +1,72 @@
+[
+ {
+  "propertyId": 101,
+  "communityId": 1,
+  "blockPortal": "Bloque A, Portal 1",
+  "address": "Av. de la Luz 14, 2º B",
+  "zipCode": "29001"
+ },
+ {
+  "propertyId": 102,
+  "communityId": 1,
+  "blockPortal": "Bloque A, Portal 2",
+  "address": "Av. de la Luz 14, 1º A",
+  "zipCode": "29001"
+ },
+ {
+  "propertyId": 103,
+  "communityId": 1,
+  "blockPortal": "Bloque B",
+  "address": "Av. de la Luz 16, 3º C",
+  "zipCode": "29001"
+ },
+ {
+  "propertyId": 201,
+  "communityId": 2,
+  "blockPortal": "Portal 1",
+  "address": "Calle Mayor 45, 4º A",
+  "zipCode": "29002"
+ },
+ {
+  "propertyId": 202,
+  "communityId": 2,
+  "blockPortal": "Portal 2",
+  "address": "Calle Mayor 45, 1º B",
+  "zipCode": "29002"
+ },
+ {
+  "propertyId": 301,
+  "communityId": 3,
+  "blockPortal": null,
+  "address": "Calle Los Juncos 8",
+  "zipCode": "29003"
+ },
+ {
+  "propertyId": 302,
+  "communityId": 3,
+  "blockPortal": null,
+  "address": "Calle Los Juncos 10",
+  "zipCode": "29003"
+ },
+ {
+  "propertyId": 401,
+  "communityId": 4,
+  "blockPortal": "Torre Norte",
+  "address": "Paseo de la Castellana 120, 5º A",
+  "zipCode": "28046"
+ },
+ {
+  "propertyId": 402,
+  "communityId": 4,
+  "blockPortal": "Torre Norte",
+  "address": "Paseo de la Castellana 120, 2º C",
+  "zipCode": "28046"
+ },
+ {
+  "propertyId": 501,
+  "communityId": 5,
+  "blockPortal": "Portal 1",
+  "address": "Calle Cervantes 3, 1º A",
+  "zipCode": "41001"
+ }
+]

@@ -1,0 +1,9 @@
+¡Casi listo, {{name}}!
+
+Para activar tu cuenta, confirma que esta dirección de correo es tuya abriendo este enlace:
+
+{{url}}
+
+{{expiryNote}}
+
+Si no has creado una cuenta, puedes ignorar este mensaje.

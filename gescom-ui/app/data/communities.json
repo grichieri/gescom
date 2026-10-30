@@ -1,0 +1,57 @@
+[
+ {
+  "communityId": 1,
+  "name": "Residencial Las Flores",
+  "nif": "H29100001",
+  "type": 1,
+  "address": "Av. de la Luz 14",
+  "zipCode": "29001",
+  "cityId": 3079,
+  "isDeleted": false,
+  "registrationCode": "4c1c929e-115d-585a-b1ee-55537cafcd1c"
+ },
+ {
+  "communityId": 2,
+  "name": "Edificio Centro",
+  "nif": "H29100002",
+  "type": 1,
+  "address": "Calle Mayor 45",
+  "zipCode": "29002",
+  "cityId": 3079,
+  "isDeleted": false,
+  "registrationCode": "77153d26-796e-50bc-b9fe-1fcfeb6e7f2c"
+ },
+ {
+  "communityId": 3,
+  "name": "Urbanización El Pinar",
+  "nif": "H29100003",
+  "type": 2,
+  "address": "Calle Los Juncos s/n",
+  "zipCode": "29003",
+  "cityId": 3079,
+  "isDeleted": false,
+  "registrationCode": "d136a300-dbbe-526e-b9ff-c1086db85bb8"
+ },
+ {
+  "communityId": 4,
+  "name": "Residencial Castellana",
+  "nif": "H28100004",
+  "type": 1,
+  "address": "Paseo de la Castellana 120",
+  "zipCode": "28046",
+  "cityId": 3535,
+  "isDeleted": false,
+  "registrationCode": "0400b063-5cd4-54b6-b584-676397ac3531"
+ },
+ {
+  "communityId": 5,
+  "name": "Edificio Antiguo (de baja)",
+  "nif": "H41100005",
+  "type": 1,
+  "address": "Calle Cervantes 3",
+  "zipCode": "41001",
+  "cityId": 3958,
+  "isDeleted": true,
+  "registrationCode": "c63885a2-4ac0-585f-b643-26a1aca85fbc"
+ }
+]

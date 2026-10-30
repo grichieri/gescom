@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: gescom-mail-service
+
+  rabbitmq:
+    # Mismos nombres de variable que usa el back, con los mismos valores por defecto
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:gescom_user_rabbit}
+    password: ${RABBITMQ_PASSWORD:gescom_password_rabbit}
+    listener:
+      simple:
+        # Un mensaje que falla (por ejemplo, SMTP caído) no vuelve a la cola: tras los intentos va a gescom.mail.dead
+        default-requeue-rejected: false
+        retry:
+          enabled: true
+          max-attempts: 4
+          initial-interval: 5s
+          multiplier: 3
+          max-interval: 2m
+
+  mail:
+    # Cada valor se puede sobrescribir con una variable de entorno; el valor tras ":" es el de por defecto.
+    # Por defecto apunta a Mailpit (un servidor de correo de pruebas que no envía nada fuera).
+    host: ${SMTP_HOST:localhost}
+    port: ${SMTP_PORT:1025}
+    # Solo se usan si SMTP_AUTH=true (servidor real); con Mailpit no hacen falta
+    username: ${SMTP_USER:}
+    password: ${SMTP_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: ${SMTP_AUTH:false}
+          starttls:
+            enable: ${SMTP_STARTTLS:false}
+          # Sin tiempos límite, un servidor SMTP que no responde dejaría colgado el listener
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+server:
+  port: ${SERVER_PORT:8081}
+
+gescom:
+  mail:
+    from: ${MAIL_FROM:no-reply@gescom.local}
+    from-name: ${MAIL_FROM_NAME:Gescom}
+    app-name: ${MAIL_APP_NAME:Gescom}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  health:
+    # La salud del microservicio no debe depender de que el servidor SMTP esté arriba en ese instante
+    mail:
+      enabled: false

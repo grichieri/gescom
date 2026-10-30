@@ -1,0 +1,139 @@
+📋 Orden de trabajo con backend en Spring Boot
+
+1º — Entidad (paquete entity)
+
+Creas la clase que representa la tabla en la BD. Lleva @Entity, @Table(name = "nombre_tabla"), @Data (Lombok), @Id y @GeneratedValue(strategy = IDENTITY). Aquí van las validaciones básicas (@NotBlank, @NotNull, @Email...).
+text
+
+Ej: entity/User.java
+
+2º — Repositorio (paquete data o repository)
+
+Creas una interfaz que extiende JpaRepository<Entidad, TipoDeID>. Spring genera la implementación automáticamente. Puedes añadir métodos personalizados (findByEmail, existsByDni...).
+text
+
+Ej: data/UserRepository.java
+
+3º — DTOs (paquete dto)
+
+Creas las clases que transportan datos entre la API y el backend. Solo con los campos que el cliente puede enviar o recibir. Sin anotaciones JPA, solo validaciones y Lombok.
+
+    UserRequest → lo que el cliente envía (POST/PUT).
+
+    UserResponse → lo que el servidor devuelve (GET).
+
+text
+
+Ej: dto/UserRequest.java, dto/UserResponse.java
+
+4º — Mapper (paquete mapper)
+
+Creas una interfaz con @Mapper(componentModel = "spring") de MapStruct. Define los métodos para convertir:
+
+    toEntity(UserRequest) → DTO a entidad.
+
+    toResponse(Users) → entidad a DTO.
+
+    updateEntityFromRequest(request, @MappingTarget user) → actualizar entidad existente.
+
+Aquí van los @Mapping para los campos cuyos nombres no coinciden (phoneNumber ↔ phone_number).
+text
+
+Ej: mapper/UserMapper.java
+
+5º — Servicio (paquete service)
+
+Creas la clase con @Service y @RequiredArgsConstructor. Inyectas el repositorio y el mapper. Aquí va la lógica de negocio: validar, hashear passwords, mapear, guardar, etc.
+
+    Recibe UserRequest, lo convierte a entidad, lo procesa, lo guarda, y devuelve UserResponse.
+
+    Nunca expone la entidad directamente al controller.
+
+text
+
+Ej: service/UserService.java
+
+6º — Controller (paquete controller)
+
+Creas la clase con @RestController, @RequestMapping("/api/recurso") y @RequiredArgsConstructor. Inyectas el servicio. Defines los endpoints (@GetMapping, @PostMapping, @PutMapping, @DeleteMapping).
+
+    Recibe @Valid @RequestBody UserRequest.
+
+    Devuelve ResponseEntity<UserResponse> o ResponseEntity<List<UserResponse>>.
+
+    Nunca toca el repositorio directamente.
+
+text
+
+Ej: controller/UserController.java
+
+7º — Manejador de excepciones (paquete exception)
+
+Creas una clase con @RestControllerAdvice que capture excepciones específicas y devuelva códigos HTTP adecuados:
+
+    EntidadNoEncontradaException → 404.
+
+    MethodArgumentNotValidException → 400 (validación).
+
+    DataIntegrityViolationException → 409 (duplicados).
+
+    Exception genérica → 500.
+
+text
+
+Ej: exception/GlobalExceptionHandler.java
+
+📊 Flujo de una petición completa
+text
+
+Cliente
+  │
+  ▼
+[Controller]  ← recibe UserRequest (JSON)
+  │
+  ▼
+[Service]     ← lógica de negocio, usa el Mapper
+  │
+  ├──▶ Mapper.toEntity() ──▶ Entidad Users
+  │
+  ├──▶ Repository.save() ──▶ BD
+  │
+  └──▶ Mapper.toResponse() ──▶ UserResponse
+  │
+  ▼
+[Controller]  ← devuelve UserResponse (JSON)
+  │
+  ▼
+Cliente
+
+🗂️ Estructura de paquetes
+text
+
+com.gescom.backend/
+├── controller/
+│   └── UserController.java
+├── service/
+│   └── UserService.java
+├── mapper/
+│   └── UserMapper.java
+├── dto/
+│   ├── UserRequest.java
+│   └── UserResponse.java
+├── entity/
+│   └── Users.java
+├── data/ (o repository/)
+│   └── UserRepository.java
+└── exception/
+    ├── EntidadNoEncontradaException.java
+    └── GlobalExceptionHandler.java
+
+📝 Plantilla mental por recurso
+text
+
+1. Entity     → User.java
+2. Repository → UserRepository.java
+3. DTOs       → UserRequest.java, UserResponse.java
+4. Mapper     → UserMapper.java
+5. Service    → UserService.java
+6. Controller → UserController.java
+7. Exception  → GlobalExceptionHandler.java (una sola vez para todo el proyecto)

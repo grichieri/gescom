@@ -1,0 +1,72 @@
+[
+ {
+  "communityUserId": 1,
+  "communityId": 1,
+  "userId": 4,
+  "moveInDate": "2019-03-01",
+  "moveOutDate": null
+ },
+ {
+  "communityUserId": 2,
+  "communityId": 1,
+  "userId": 5,
+  "moveInDate": "2022-09-15",
+  "moveOutDate": null
+ },
+ {
+  "communityUserId": 3,
+  "communityId": 1,
+  "userId": 6,
+  "moveInDate": "2018-06-20",
+  "moveOutDate": null
+ },
+ {
+  "communityUserId": 4,
+  "communityId": 1,
+  "userId": 14,
+  "moveInDate": "2020-01-10",
+  "moveOutDate": "2023-05-31"
+ },
+ {
+  "communityUserId": 5,
+  "communityId": 2,
+  "userId": 7,
+  "moveInDate": "2017-11-05",
+  "moveOutDate": null
+ },
+ {
+  "communityUserId": 6,
+  "communityId": 2,
+  "userId": 8,
+  "moveInDate": "2023-02-01",
+  "moveOutDate": null
+ },
+ {
+  "communityUserId": 7,
+  "communityId": 3,
+  "userId": 9,
+  "moveInDate": "2021-04-12",
+  "moveOutDate": null
+ },
+ {
+  "communityUserId": 8,
+  "communityId": 3,
+  "userId": 10,
+  "moveInDate": "2016-09-01",
+  "moveOutDate": null
+ },
+ {
+  "communityUserId": 9,
+  "communityId": 4,
+  "userId": 11,
+  "moveInDate": "2024-01-15",
+  "moveOutDate": null
+ },
+ {
+  "communityUserId": 10,
+  "communityId": 4,
+  "userId": 12,
+  "moveInDate": "2020-07-01",
+  "moveOutDate": null
+ }
+]

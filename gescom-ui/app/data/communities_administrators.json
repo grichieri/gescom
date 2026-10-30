@@ -1,0 +1,44 @@
+[
+ {
+  "communityAdministratorId": 1,
+  "communityId": 1,
+  "userId": 3,
+  "startDate": "2015-01-01",
+  "endDate": "2019-12-31"
+ },
+ {
+  "communityAdministratorId": 2,
+  "communityId": 1,
+  "userId": 2,
+  "startDate": "2020-01-01",
+  "endDate": null
+ },
+ {
+  "communityAdministratorId": 3,
+  "communityId": 2,
+  "userId": 2,
+  "startDate": "2021-06-01",
+  "endDate": null
+ },
+ {
+  "communityAdministratorId": 4,
+  "communityId": 3,
+  "userId": 2,
+  "startDate": "2022-01-01",
+  "endDate": null
+ },
+ {
+  "communityAdministratorId": 5,
+  "communityId": 4,
+  "userId": 3,
+  "startDate": "2020-07-01",
+  "endDate": null
+ },
+ {
+  "communityAdministratorId": 6,
+  "communityId": 5,
+  "userId": 3,
+  "startDate": "2012-01-01",
+  "endDate": "2022-12-31"
+ }
+]

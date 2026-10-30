@@ -1,0 +1,16 @@
+# Perfil de desarrollo sin infraestructura: H2 en memoria + datos de ejemplo.
+# Uso: ./gradlew bootRun --args='--spring.profiles.active=dev'
+spring:
+  datasource:
+    url: jdbc:h2:mem:gescom;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+
+  flyway:
+    enabled: false

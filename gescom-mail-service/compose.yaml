@@ -1,0 +1,39 @@
+# Microservicio de correo + RabbitMQ + Mailpit (bandeja de pruebas)
+# Arranque:  docker compose up -d --build
+#   RabbitMQ (panel):   http://localhost:15672   usuario/clave: los de RABBITMQ_USER / RABBITMQ_PASSWORD
+#   Mailpit (bandeja):  http://localhost:8025
+#
+# Si el back ya levanta su propio RabbitMQ, no arranques el de aquí (chocan en el puerto 5672):
+#   docker compose up -d --build mail-service mailpit   y apunta RABBITMQ_HOST a ese RabbitMQ.
+services:
+  mail-service:
+    build: .
+    env_file: .env
+    ports:
+      - "8081:8081"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
+    restart: unless-stopped
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-gescom_user_rabbit}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-gescom_password_rabbit}
+    ports:
+      - "5672:5672"     # AMQP (el back se conecta aquí)
+      - "15672:15672"   # panel web
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "8025:8025"   # interfaz web
+      - "1025:1025"   # SMTP

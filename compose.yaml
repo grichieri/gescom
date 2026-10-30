@@ -1,0 +1,160 @@
+# GESCOM completo en Docker: base de datos, Redis, RabbitMQ, back y front (y, si se quiere, el correo).
+# Se ejecuta DESDE ESTA CARPETA (gescom/), que debe contener las tres carpetas del proyecto:
+#   gescom-backend/        (el back, con su Dockerfile)
+#   gescom-ui/             (el front, con su Dockerfile)
+#   gescom-mail-service/   (el microservicio de correo; solo se construye si se activa el correo)
+#
+#   Sin correo (5 contenedores: postgres, redis, rabbitmq, backend, frontend):
+#     docker compose up -d --build
+#
+#   Con correo (7 contenedores: añade gescom-mail-service y gescom-mailpit):
+#     MAIL_ENABLED=true docker compose --profile mail up -d --build
+#
+#   Para parar:                        docker compose down        (conserva los datos)
+#   Para parar y borrar los datos:     docker compose down -v     (la base de datos queda vacía)
+#
+# Direcciones:  front  http://localhost:3000  |  back  http://localhost:8080  |  Mailpit  http://localhost:8025
+#               RabbitMQ  http://localhost:15672
+#
+# IMPORTANTE: el back usa el puerto 8080 y el front el 3000. Si el back está arrancado desde IntelliJ
+# (o el front con "npm run dev"), páralos antes, o chocarán con los contenedores.
+#
+# Para enviar correos de verdad (Gmail, Brevo...) no se toca este archivo: se definen SMTP_HOST, SMTP_PORT,
+# SMTP_AUTH, SMTP_STARTTLS, SMTP_USER, SMTP_PASSWORD y MAIL_FROM en el entorno o en un archivo .env
+# colocado junto a este compose.yaml (no se sube a git).
+name: gescom
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: gescom-postgres
+    environment:
+      POSTGRES_DB: gescom_db
+      POSTGRES_USER: gescom_user_db
+      POSTGRES_PASSWORD: gescom_password_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gescom_user_db -d gescom_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: gescom-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq:
+    image: rabbitmq:4-management-alpine
+    container_name: gescom-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: gescom_user_rabbit
+      RABBITMQ_DEFAULT_PASS: gescom_password_rabbit
+    ports:
+      - "5672:5672"     # AMQP
+      - "15672:15672"   # Management UI
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+
+  backend:
+    build:
+      context: ./gescom-backend
+    container_name: gescom-backend
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: gescom_db
+      POSTGRES_USER: gescom_user_db
+      POSTGRES_PASSWORD: gescom_password_db
+      REDIS_HOST: redis
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USER: gescom_user_rabbit
+      RABBITMQ_PASSWORD: gescom_password_rabbit
+      # El front está en el 3000 (el 5173 se deja por si se usa "npm run dev")
+      CORS_ORIGINS: http://localhost:3000,http://localhost:5173
+      FRONT_URL: http://localhost:3000
+      # El interruptor del correo: false por defecto; con el comando de arriba (MAIL_ENABLED=true ...) se activa
+      MAIL_ENABLED: ${MAIL_ENABLED:-false}
+      GESCOM_UPLOADS_DIR: /app/uploads
+    volumes:
+      - uploads_data:/app/uploads   # fotos subidas: sobreviven a recrear el contenedor
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./gescom-ui
+    container_name: gescom-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # ---- Correo (opcional): solo se levantan con --profile mail ----
+  mail-service:
+    profiles: ["mail"]
+    build:
+      context: ./gescom-mail-service
+    container_name: gescom-mail-service
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USER: gescom_user_rabbit
+      RABBITMQ_PASSWORD: gescom_password_rabbit
+      SMTP_HOST: ${SMTP_HOST:-mailpit}
+      SMTP_PORT: ${SMTP_PORT:-1025}
+      SMTP_AUTH: ${SMTP_AUTH:-false}
+      SMTP_STARTTLS: ${SMTP_STARTTLS:-false}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      MAIL_FROM: ${MAIL_FROM:-no-reply@gescom.local}
+      MAIL_FROM_NAME: ${MAIL_FROM_NAME:-Gescom}
+      MAIL_APP_NAME: ${MAIL_APP_NAME:-Gescom}
+    ports:
+      - "8081:8081"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
+    restart: unless-stopped
+
+  mailpit:
+    profiles: ["mail"]
+    image: axllent/mailpit:latest
+    container_name: gescom-mailpit
+    ports:
+      - "8025:8025"   # interfaz web
+      - "1025:1025"   # SMTP
+
+volumes:
+  postgres_data:
+  redis_data:
+  rabbitmq_data:
+  uploads_data:

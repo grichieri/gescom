@@ -1,0 +1,210 @@
+[
+ {
+  "provinceId": 1,
+  "name": "Araba/Álava"
+ },
+ {
+  "provinceId": 2,
+  "name": "Albacete"
+ },
+ {
+  "provinceId": 3,
+  "name": "Alicante/Alacant"
+ },
+ {
+  "provinceId": 4,
+  "name": "Almería"
+ },
+ {
+  "provinceId": 5,
+  "name": "Ávila"
+ },
+ {
+  "provinceId": 6,
+  "name": "Badajoz"
+ },
+ {
+  "provinceId": 7,
+  "name": "Balears, Illes"
+ },
+ {
+  "provinceId": 8,
+  "name": "Barcelona"
+ },
+ {
+  "provinceId": 9,
+  "name": "Burgos"
+ },
+ {
+  "provinceId": 10,
+  "name": "Cáceres"
+ },
+ {
+  "provinceId": 11,
+  "name": "Cádiz"
+ },
+ {
+  "provinceId": 12,
+  "name": "Castellón/Castelló"
+ },
+ {
+  "provinceId": 13,
+  "name": "Ciudad Real"
+ },
+ {
+  "provinceId": 14,
+  "name": "Córdoba"
+ },
+ {
+  "provinceId": 15,
+  "name": "Coruña, A"
+ },
+ {
+  "provinceId": 16,
+  "name": "Cuenca"
+ },
+ {
+  "provinceId": 17,
+  "name": "Girona"
+ },
+ {
+  "provinceId": 18,
+  "name": "Granada"
+ },
+ {
+  "provinceId": 19,
+  "name": "Guadalajara"
+ },
+ {
+  "provinceId": 20,
+  "name": "Gipuzkoa"
+ },
+ {
+  "provinceId": 21,
+  "name": "Huelva"
+ },
+ {
+  "provinceId": 22,
+  "name": "Huesca"
+ },
+ {
+  "provinceId": 23,
+  "name": "Jaén"
+ },
+ {
+  "provinceId": 24,
+  "name": "León"
+ },
+ {
+  "provinceId": 25,
+  "name": "Lleida"
+ },
+ {
+  "provinceId": 26,
+  "name": "Rioja, La"
+ },
+ {
+  "provinceId": 27,
+  "name": "Lugo"
+ },
+ {
+  "provinceId": 28,
+  "name": "Madrid"
+ },
+ {
+  "provinceId": 29,
+  "name": "Málaga"
+ },
+ {
+  "provinceId": 30,
+  "name": "Murcia"
+ },
+ {
+  "provinceId": 31,
+  "name": "Navarra"
+ },
+ {
+  "provinceId": 32,
+  "name": "Ourense"
+ },
+ {
+  "provinceId": 33,
+  "name": "Asturias"
+ },
+ {
+  "provinceId": 34,
+  "name": "Palencia"
+ },
+ {
+  "provinceId": 35,
+  "name": "Palmas, Las"
+ },
+ {
+  "provinceId": 36,
+  "name": "Pontevedra"
+ },
+ {
+  "provinceId": 37,
+  "name": "Salamanca"
+ },
+ {
+  "provinceId": 38,
+  "name": "Santa Cruz de Tenerife"
+ },
+ {
+  "provinceId": 39,
+  "name": "Cantabria"
+ },
+ {
+  "provinceId": 40,
+  "name": "Segovia"
+ },
+ {
+  "provinceId": 41,
+  "name": "Sevilla"
+ },
+ {
+  "provinceId": 42,
+  "name": "Soria"
+ },
+ {
+  "provinceId": 43,
+  "name": "Tarragona"
+ },
+ {
+  "provinceId": 44,
+  "name": "Teruel"
+ },
+ {
+  "provinceId": 45,
+  "name": "Toledo"
+ },
+ {
+  "provinceId": 46,
+  "name": "Valencia/València"
+ },
+ {
+  "provinceId": 47,
+  "name": "Valladolid"
+ },
+ {
+  "provinceId": 48,
+  "name": "Bizkaia"
+ },
+ {
+  "provinceId": 49,
+  "name": "Zamora"
+ },
+ {
+  "provinceId": 50,
+  "name": "Zaragoza"
+ },
+ {
+  "provinceId": 51,
+  "name": "Ceuta"
+ },
+ {
+  "provinceId": 52,
+  "name": "Melilla"
+ }
+]

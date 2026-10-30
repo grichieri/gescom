@@ -1,0 +1,149 @@
+[
+ {
+  "commentId": 1,
+  "incidenceId": 11,
+  "userId": 2,
+  "comment": "Avisado el técnico de telecomunicaciones.",
+  "createdDate": "2026-06-19T10:00:00"
+ },
+ {
+  "commentId": 2,
+  "incidenceId": 11,
+  "userId": 2,
+  "comment": "Interfono reparado. Cierro la incidencia.",
+  "createdDate": "2026-06-26T11:30:00"
+ },
+ {
+  "commentId": 3,
+  "incidenceId": 6,
+  "userId": 2,
+  "comment": "Avisado el persianista.",
+  "createdDate": "2026-07-23T09:30:00"
+ },
+ {
+  "commentId": 4,
+  "incidenceId": 6,
+  "userId": 2,
+  "comment": "Persiana reparada. Cierro la incidencia.",
+  "createdDate": "2026-07-29T13:00:00"
+ },
+ {
+  "commentId": 5,
+  "incidenceId": 3,
+  "userId": 2,
+  "comment": "Programada la sustitución de la bombilla.",
+  "createdDate": "2026-08-30T12:00:00"
+ },
+ {
+  "commentId": 6,
+  "incidenceId": 3,
+  "userId": 15,
+  "comment": "He sustituido la bombilla de la escalera. Queda resuelta.",
+  "createdDate": "2026-09-02T10:30:00"
+ },
+ {
+  "commentId": 7,
+  "incidenceId": 8,
+  "userId": 2,
+  "comment": "Pedido presupuesto de carpintería para reponer las tablas.",
+  "createdDate": "2026-09-06T10:00:00"
+ },
+ {
+  "commentId": 8,
+  "incidenceId": 10,
+  "userId": 3,
+  "comment": "Contactada la empresa de impermeabilización.",
+  "createdDate": "2026-09-11T09:00:00"
+ },
+ {
+  "commentId": 9,
+  "incidenceId": 5,
+  "userId": 16,
+  "comment": "He revisado la puerta: se ha roto el muelle de cierre.",
+  "createdDate": "2026-09-15T18:00:00"
+ },
+ {
+  "commentId": 10,
+  "incidenceId": 5,
+  "userId": 2,
+  "comment": "Solicitado presupuesto para reparar el cierre de la puerta del portal.",
+  "createdDate": "2026-09-16T10:00:00"
+ },
+ {
+  "commentId": 11,
+  "incidenceId": 8,
+  "userId": 10,
+  "comment": "El carpintero repondrá las tablas la semana del 12 de octubre.",
+  "createdDate": "2026-09-20T12:00:00"
+ },
+ {
+  "commentId": 12,
+  "incidenceId": 2,
+  "userId": 2,
+  "comment": "Avisada la empresa del ascensor. Mientras tanto, usad las escaleras.",
+  "createdDate": "2026-09-21T09:00:00"
+ },
+ {
+  "commentId": 13,
+  "incidenceId": 2,
+  "userId": 4,
+  "comment": "Confirmado con la empresa: falta una pieza del cuadro de maniobra.",
+  "createdDate": "2026-09-23T12:15:00"
+ },
+ {
+  "commentId": 14,
+  "incidenceId": 5,
+  "userId": 7,
+  "comment": "Presupuesto aprobado. Pendiente de fecha de instalación.",
+  "createdDate": "2026-09-25T18:00:00"
+ },
+ {
+  "commentId": 15,
+  "incidenceId": 1,
+  "userId": 2,
+  "comment": "Recibida. He avisado a la empresa de mantenimiento para que revise la cubierta.",
+  "createdDate": "2026-09-28T10:05:00"
+ },
+ {
+  "commentId": 16,
+  "incidenceId": 10,
+  "userId": 12,
+  "comment": "Han hecho la primera visita; el tratamiento está previsto para esta semana.",
+  "createdDate": "2026-09-28T17:30:00"
+ },
+ {
+  "commentId": 17,
+  "incidenceId": 2,
+  "userId": 2,
+  "comment": "La pieza llega el 5 de octubre y la reparación está prevista ese mismo día.",
+  "createdDate": "2026-09-29T11:00:00"
+ },
+ {
+  "commentId": 18,
+  "incidenceId": 1,
+  "userId": 2,
+  "comment": "El técnico visitará la vivienda el jueves por la mañana.",
+  "createdDate": "2026-09-30T17:30:00"
+ },
+ {
+  "commentId": 19,
+  "incidenceId": 7,
+  "userId": 10,
+  "comment": "Avisada la empresa de alumbrado para que revise la farola.",
+  "createdDate": "2026-10-01T08:30:00"
+ },
+ {
+  "commentId": 20,
+  "incidenceId": 4,
+  "userId": 2,
+  "comment": "Pendiente de que el fontanero confirme la fecha de visita.",
+  "createdDate": "2026-10-02T09:00:00"
+ },
+ {
+  "commentId": 21,
+  "incidenceId": 9,
+  "userId": 3,
+  "comment": "Avisado el servicio de fontanería para localizar el origen de la filtración.",
+  "createdDate": "2026-10-02T12:00:00"
+ }
+]

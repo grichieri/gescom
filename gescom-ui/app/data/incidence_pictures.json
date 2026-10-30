@@ -1,0 +1,80 @@
+[
+ {
+  "pictureId": 1,
+  "incidenceId": 1,
+  "url": "incidences/gotera_102_techo.jpg",
+  "createdDate": "2026-09-28T09:15:00"
+ },
+ {
+  "pictureId": 2,
+  "incidenceId": 1,
+  "url": "incidences/gotera_102_mancha.jpg",
+  "createdDate": "2026-09-28T09:15:00"
+ },
+ {
+  "pictureId": 3,
+  "incidenceId": 2,
+  "url": "incidences/ascensor_portal1.jpg",
+  "createdDate": "2026-09-20T18:40:00"
+ },
+ {
+  "pictureId": 4,
+  "incidenceId": 2,
+  "url": "incidences/ascensor_botonera.jpg",
+  "createdDate": "2026-09-20T18:40:00"
+ },
+ {
+  "pictureId": 5,
+  "incidenceId": 7,
+  "url": "incidences/farola.jpg",
+  "createdDate": "2026-09-30T21:00:00"
+ },
+ {
+  "pictureId": 6,
+  "incidenceId": 9,
+  "url": "incidences/garaje_general.jpg",
+  "createdDate": "2026-10-02T07:50:00"
+ },
+ {
+  "pictureId": 7,
+  "incidenceId": 9,
+  "url": "incidences/garaje_charco.jpg",
+  "createdDate": "2026-10-02T07:50:00"
+ },
+ {
+  "pictureId": 8,
+  "incidenceId": 9,
+  "url": "incidences/garaje_plaza12.jpg",
+  "createdDate": "2026-10-02T07:50:00"
+ },
+ {
+  "pictureId": 9,
+  "incidenceId": 10,
+  "url": "incidences/trastero_1.jpg",
+  "createdDate": "2026-09-10T16:45:00"
+ },
+ {
+  "pictureId": 10,
+  "incidenceId": 10,
+  "url": "incidences/trastero_2.jpg",
+  "createdDate": "2026-09-10T16:45:00"
+ },
+ {
+  "pictureId": 11,
+  "incidenceId": 10,
+  "url": "incidences/trastero_3.jpg",
+  "createdDate": "2026-09-10T16:45:00"
+ },
+ {
+  "pictureId": 12,
+  "incidenceId": 10,
+  "url": "incidences/trastero_4.jpg",
+  "createdDate": "2026-09-10T16:45:00"
+ },
+ {
+  "pictureId": 13,
+  "incidenceId": 10,
+  "url": "incidences/trastero_5.jpg",
+  "createdDate": "2026-09-10T16:45:00"
+ }
+]

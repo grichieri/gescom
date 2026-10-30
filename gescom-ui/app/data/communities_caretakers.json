@@ -1,0 +1,23 @@
+[
+ {
+  "communityCaretakerId": 1,
+  "communityId": 1,
+  "userId": 15,
+  "startDate": "2018-03-01",
+  "endDate": null
+ },
+ {
+  "communityCaretakerId": 2,
+  "communityId": 4,
+  "userId": 16,
+  "startDate": "2019-02-01",
+  "endDate": "2022-06-30"
+ },
+ {
+  "communityCaretakerId": 3,
+  "communityId": 2,
+  "userId": 16,
+  "startDate": "2022-07-01",
+  "endDate": null
+ }
+]

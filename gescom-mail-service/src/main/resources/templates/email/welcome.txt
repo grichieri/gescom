@@ -1,0 +1,9 @@
+Bienvenido a {{appName}}, {{name}}
+
+Se ha creado tu cuenta en la comunidad {{communityName}}. Para empezar a usarla, elige tu contraseña abriendo este enlace:
+
+{{url}}
+
+{{expiryNote}}
+
+Si crees que este mensaje no es para ti, puedes ignorarlo.
